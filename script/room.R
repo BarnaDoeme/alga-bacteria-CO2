@@ -8,6 +8,7 @@ library(scales)
 #loading data
 data <- read_excel("data/alga_growth_12-30.xlsx")
 #omitting day18, 8 days are enough
+#rearrange factor levels for clearer visuals
 data <- data %>% 
   filter(day != 18)%>%
   mutate(treatment = fct_relevel(treatment, "control", "Azospirillum", "Herbaspirillum"))
@@ -48,7 +49,6 @@ ggsave("output/room_od.png",
        dpi = 500)
 
 #with Hungarian text
-# Use the palette in your plot
 ggplot(data, aes(x = as.factor(day), y = OD682, fill = treatment)) +
   geom_jitter(alpha = 0, color = "black", position = position_jitterdodge(0.1)) +
   geom_smooth(aes(x=day, y=OD682), method = 'lm', formula = y~x, se = FALSE, color = "black", linetype = "solid", size = 1.5) +

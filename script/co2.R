@@ -7,6 +7,7 @@ library(dplyr)
 
 #loading data
 data <- read_excel("data/alga_growth_CO2_01-20.xlsx")
+#rearrange factor levels for clearer visuals
 data <- data %>% 
   mutate(treatment = fct_relevel(treatment, "control", "Azospirillum", "Herbaspirillum"))
 
@@ -46,7 +47,6 @@ ggsave("output/co2_od.png",
        dpi = 500)
 
 #with Hungarian text
-# Use the palette in your plot
 ggplot(data, aes(x = as.factor(day), y = OD682, fill = treatment)) +
     geom_jitter(alpha = 0, color = "black", position = position_jitterdodge(0.1)) +
 geom_smooth(aes(x=day, y=OD682), method = 'lm', formula = y~x, se = FALSE, color = "black", linetype = "solid", size = 1.5) +

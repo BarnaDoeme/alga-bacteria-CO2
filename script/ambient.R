@@ -7,7 +7,7 @@ library(dplyr)
 
 #loading data
 data <- read_excel("data/alga_growth_01-26.xlsx")
-#rearrange factor levels
+#rearrange factor levels for clearer visuals
 data <- data %>% 
   mutate(treatment = fct_relevel(treatment, "control", "Azospirillum", "Herbaspirillum"))
 
