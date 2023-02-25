@@ -1,8 +1,9 @@
-library(ggplot2)
 library(readxl)
-library(RColorBrewer)
-library(scales)
 library(dplyr)
+library(RColorBrewer)
+library(ggplot2)
+library(scales)
+library(forcats)
 
 
 #loading data

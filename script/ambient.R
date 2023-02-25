@@ -1,9 +1,9 @@
-library(ggplot2)
 library(readxl)
+library(dplyr)
 library(RColorBrewer)
+library(ggplot2)
 library(scales)
 library(forcats)
-library(dplyr)
 
 #loading data
 data <- read_excel("data/alga_growth_01-26.xlsx")
